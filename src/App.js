@@ -1,9 +1,16 @@
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import Login from "./components/login";
+import SignUp from "./components/singnup";
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/" element={<Navigate to='/login' />} />
+        <Route path="/sign-up" element={<SignUp/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
