@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import Button from "./button";
 import Input from "./input";
 
@@ -9,7 +9,8 @@ const Login = () => {
         email: '',
         password: ''
     })
-    const [errors, setErrors] = useState('')
+    const [errors, setErrors] = useState('');
+    const navigate = useNavigate();
 
     const emailValidation = (val) => {
         const regex = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
@@ -31,9 +32,9 @@ const Login = () => {
 
     const onSumbit = () => {
         localStorage.setItem("userData", JSON.stringify(data))
-        let Data = localStorage.getItem("userData")
-        console.log(JSON.parse(Data))
+        navigate('/home')
     }
+
 
     return (
         <div className="d-flex justify-content-center align-items-center h-100">
